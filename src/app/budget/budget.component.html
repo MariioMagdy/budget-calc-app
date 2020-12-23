@@ -1,0 +1,24 @@
+<section class="budget-items-section">
+    <div class="budget-items-container">
+        <div class="income-coulum ">
+            <h1 class="has-text-centered">Income</h1>
+            <div class="budget-items">
+                <div *ngFor="let item of budgetItems" >
+                    <app-budget-item-card *ngIf="item.amount >= 0" [item]="item" (CardClick)="onCardClicked(item)" (xbutton) ="delete(item)" style="margin-bottom: 20px;"></app-budget-item-card>    
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="expenses-coulum">
+            <h1 class="has-text-centered">Expenses</h1>
+            <div class="budget-items">
+                <div *ngFor="let item of budgetItems" >
+                    <app-budget-item-card *ngIf="item.amount < 0" [item]="item"  (xbutton) ="delete(item)" (CardClick)="onCardClicked(item)" style="margin-bottom: 20px;"></app-budget-item-card>    
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
